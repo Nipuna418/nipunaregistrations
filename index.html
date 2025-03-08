@@ -19,7 +19,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #090e1a, #1a1f38);
+      background: linear-gradient(135deg, #120078, #9D0191, #FD3A69, #FF6B6B);
       color: #fff;
       transition: background 0.5s, color 0.5s;
       padding: 0;
@@ -29,31 +29,63 @@
     }
 
     body.dark {
-      background: #000;
+      background:black;
       color: #00ff88;
+      border-color: #00ff88;
+    }
+body.dark .card{
+  border-color:#00ff88;
+  color:#00ff88;
+}
+
+    body.dark .card:hover{
+      background-color: black;
+      border-color:#00ff88;
+      box-shadow: 0 0 15px #00ff88;
+      text-shadow: 1px 1px 10px #00ff88;
+
+
     }
 
     #darkModeToggle, #menuToggle {
+      width:2.8rem;
+      height:2.8rem;
       position: fixed;
       top: 1rem;
       padding: 0.7rem;
-      background: rgba(0, 0, 0, 0.6);
-      color: #00ff88;
+      background: #5d0255;
+      color: black;
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 0 15px #00ff88;
-      transition: all 0.3s ease;
+      box-shadow: 0 0 15px black;
+      
     }
 
-    #darkModeToggle:hover, #menuToggle:hover {
+   #darkModeToggle:hover, #menuToggle:hover {
       transform: scale(1.1);
-      background: #00ff88;
-      color: #000;
+      background: black;
+      color: white;
+      box-shadow: 2 2 20px black;
+      transition: all 0.3s ease;
     }
 
     #darkModeToggle { right: 1rem; }
     #menuToggle { left: 1rem; z-index: 1100; }
+
+
+    body.dark #darkModeToggle, body.dark #menuToggle{
+      color:#00ff88;
+      background-color:#000814;
+      box-shadow:0 0 15px #00ff88;
+    }
+    body.dark #darkModeToggle:hover, body.dark #menuToggle:hover{
+      box-shadow:5 5 20px #00ff88;
+      text-shadow: 1px 1px 10px #00ff88;
+      transition: 0.3s ease-in-out;
+    } 
+
+
 
     #sidebar {
       position: fixed;
@@ -61,11 +93,16 @@
       top: 0;
       height: 100%;
       width: 260px;
-      background: rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #120078, #9D0191, #FD3A69, #FF6B6B,0.5);
       padding: 2rem;
       transition: left 0.4s ease;
-      border-right: 2px solid #00ff88;
+      border-right: 2px solid #120078;
       z-index: 1000;
+    }
+    
+    body.dark #sidebar{
+      border-right:2px solid #00ff88;
+      background:black;
     }
 
     #sidebar.open {
@@ -82,7 +119,7 @@
     }
 
     #sidebar ul li a {
-      color: #00ff88;
+      color: 	#a2bfd3;
       text-decoration: none;
       font-size: 1.3rem;
       display: flex;
@@ -96,6 +133,12 @@
       transform: translateX(5px);
     }
 
+    body.dark #sidebar ul li a{
+      color:#00ff88;
+    }
+
+   
+
     header {
       margin-top: 6rem;
       text-align: center;
@@ -103,7 +146,7 @@
 
     header h1 {
       font-size: 3rem;
-      text-shadow: 0 0 20px #00ff88;
+      text-shadow: 0 0 20px #2B004F;
     }
 
     header p {
@@ -122,30 +165,34 @@
     }
 
     .card {
-      background: rgba(0, 0, 0, 0.5);
+      background-color: rgba(43, 0, 79, 0.3);
       padding: 2rem;
       border-radius: 20px;
       text-align: center;
       font-size: 1.2rem;
-      color: #00ff88;
+      color: #a2bfd3;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.4s ease;
-      border: 2px solid #00ff88;
-      box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+      border: 2px solid #00FFF7;
+      box-shadow: #00FFF7;
     }
 
     .card:hover {
       transform: translateY(-10px) scale(1.05);
-      background: rgba(0, 255, 136, 0.1);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.7);
+      background:rgba(255, 0, 102, 0.3) ;
+      color:white;
+      box-shadow: #00FFF7;
     }
 
     footer {
       margin: 3rem 0 1rem;
       font-size: 1rem;
       text-align: center;
-      color: #00d4ff;
+      color: #C084FC;
+    }
+    body.dark footer{
+      color:#00ff88;
     }
 
     /* Preloader */
@@ -159,6 +206,7 @@
       align-items: center;
       z-index: 9999;
     }
+   
 
     .spinner {
       width: 60px;
@@ -168,6 +216,21 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
+    .social{
+      display:block;
+      width:3rem;
+      height:3rem;
+      border-radius:20%;
+    }
+    .icons{
+      display:flex;
+      justify-content:space-evenly;
+      align-items: center;
+      position:relative;
+      left:0px;
+      top:60%;
+      
+    } 
 
     @keyframes spin {
       to { transform: rotate(360deg); }
@@ -205,11 +268,17 @@
   <!-- Sidebar -->
   <nav id="sidebar">
     <ul>
-      <li><a href="https://chat.whatsapp.com/H9tEAZ7H4O42893ig5IjfZ"><i class="fab fa-whatsapp"></i> WhatsApp Community</a></li>
-      <li><a href="https://forms.gle/rzoDJzY5EQ3uRiBf6"><i class="fas fa-file-alt"></i> Registrations </a></li>
-      <li><a href="https://necgnipuna.netlify.app/"><i class="fas fa-info-circle"></i> About Us</a></li>
-      <li><a href="https://www.instagram.com/necgcse/?igsh=MTlyaGVpN2h1NnJsaw%3D%3D#"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Google Form</a></li>
+      <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
+    
+    <div class="icons">
+      <a href="https://chat.whatsapp.com/H9tEAZ7H4O42893ig5IjfZ"> <img src="whatsapplogo.webp" alt="instagram" class="social"></a>
+      <a href="https://www.instagram.com/necgcse/?igsh=MTlyaGVpN2h1NnJsaw%3D%3D#"><img src="instagram.jpeg" alt="youtube" class="social"></a>
+    <a href="https://www.youtube.com/@necg_f1?si=u2COPqJ64ke4Ar18"><img src="Youtube.webp" alt="whatsapp" class="social"></a>
+
+    </div>
   </nav>
 
   <!-- Title -->
@@ -221,15 +290,17 @@
   <!-- Events -->
   <main>
     <section class="grid">
-      <a class="card" href="index4.html">Poster presentation</a>
-      <a class="card" href="index3.html">paper presentation</a>
-      <a class="card" href="technicalquiz.html">Technical quiz</a>
-      <a class="card" href="index1.html">AI Prompt Challence </a>
+      <a class="card" href="index3.html">Paper Presentation</a>
+      <a class="card" href="index4.html">Poster Presentation</a>
+      <a class="card" href="index1.html">AI Prompt Challenge</a>
+      <a class="card" href="technicalquiz.html">Technical Quiz</a>
       <a class="card" href="index2.html">Brain Teasers</a>
-      <a class="card" href="index5">Reel making (Tech)</a>
-      <a class="card" href="talentchallenge">Talent Challenge (Tech)</a>
+      <a class="card" href="index5.html">Reel making (Tech)</a>
+      <a class="card" href="talentchallenge.html">Talent Challenge (Tech)</a>
       <a class="card" href="spotevents.html">Spot events (Tech)</a>
-      
+    </section>
+    <section>
+      <!-- <div type="button" class="register">register</div> -->
     </section>
   </main>
 
